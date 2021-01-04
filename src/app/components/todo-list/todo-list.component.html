@@ -1,0 +1,38 @@
+<div class="col-sm-12 pt-5 text-right">
+  <div class="col-md-12">
+    <button type="button" class="btn btn-dark" (click)="onClickAddTodo()">New Todo</button>
+  </div>
+</div>
+
+<div class="col-sm-12 pt-2">
+  <div class="col-md-12">
+    <table class="table table-bordered table-hover table-striped">
+      <thead class="table-primary">
+        <tr>
+          <th scope="col" class="text-center">#</th>
+          <th scope="col">Title</th>
+          <th scope="col">Body</th>
+          <th scope="col">Status</th>
+          <th scope="col">Created on</th>
+          <th scope="col">Edited on</th>
+          <th scope="col" class="text-center">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let todo of todos" [ngClass]="{'text-line' : todo.status === 'done'}">
+          <td class="text-center">{{todo.id}}</td>
+          <td>{{todo.title}}</td>
+          <td>{{todo.body}}</td>
+          <td>{{todo.status | titlecase }}</td>
+          <td>{{todo.created | date: 'medium'}}</td>
+          <td>{{todo.edited | date: 'medium'}}</td>
+          <td width="150" class="text-center">
+            <button type="button" class="btn btn-info btn-sm mr-2"
+              (click)="onClickEditTodoDetail(todo.id)">Edit</button>
+            <button type="button" class="btn btn-danger btn-sm" (click)="onClickTodoDelete(todo.id)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
