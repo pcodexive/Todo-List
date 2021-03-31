@@ -4,6 +4,8 @@ import { Subject } from 'rxjs';
 import { Todo } from '../model/todo';
 import { Observable, BehaviorSubject } from 'rxjs';
 
+
+import * as _ from 'lodash';    
 @Injectable()
 export class TodoService {
 
@@ -95,12 +97,10 @@ export class TodoService {
 
   deleteTodoDetail(id) {
     var todoArray = JSON.parse(localStorage.getItem('localData'));
-    for (var i in todoArray) {
-      if (todoArray[i].id === id) {
-        todoArray.splice(i, 1);
-        localStorage.setItem('localData', JSON.stringify(todoArray));
-      }
-    }
+    todoArray[0].elements  =_.filter(todoArray[0].elements, function(o) { 
+      return o.ID !=id        
+       });
+   localStorage.setItem('localData', JSON.stringify(todoArray));
   };
 
   public changecurrentStep(step: number): void {

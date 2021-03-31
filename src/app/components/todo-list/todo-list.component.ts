@@ -54,19 +54,15 @@ export class TodoListComponent implements OnInit, AfterViewInit {
       "ID": this.id,
       "Description": this.description,
     }
-    //   localStorage.setItem('localData', JSON.stringify(todoArray));
-    
-    // this.todos = this.todoService.getAllTodos();
-    // console.log("local",this.todos);
-    // this.todos[0].elements.push(detail)
-    // this.addmode=false ;
-    
     this.todoService.updateTodoById(detail,'add');
     this.todos = this.todoService.getAllTodos();
     this.addmode=false ;
 
-
-
  } 
+ onDelete(id:any){
+  this.todoService.deleteTodoDetail(id);
+  this.todos = this.todoService.getAllTodos();
+
+ }
   }
 

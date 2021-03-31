@@ -89,7 +89,7 @@
       <div class="col-md-2 id-div">
         <div class="card-text elipsis">{{element.ID}}</div>
       </div>
-      <div class="col-md-1 id-div">
+      <div class="col-md-1 id-div" (click)="onDelete(element.ID)">
         <div class="card-text elipsis"> <i class="fa fa-trash-o float-right font-18"></i></div>
       </div>
     </div>
