@@ -39,16 +39,36 @@
 <div class="card">
   <div *ngFor="let todo of todos">
     <div><h2>Edit Set</h2></div>
-    <div class="card-body">
-      <h5 class="card-title">{{todo.setName}}</h5>
-      <p class="card-text">{{todo.setDescription}}</p>
-      <p class="card-text">{{todo.setID}}</p>
-    </div>
+     <div class="card-body" (click)="onclick()">
+      <div>
+        <h5 class="card-title">{{todo.setName}}</h5>
+        <p class="card-text">{{todo.setDescription}}</p>
+        <p class="card-text">{{todo.setID}}</p>
+      </div>
+      <div class="row" *ngIf="addmode">
+        <div class="col-md-3">
+          <input type="text" class="form-control" id="body" placeholder="Body" [(ngModel)]="name" >
+        </div>
+        <div class="col-md-5">
+          <input type="text" class="form-control" id="body" placeholder="Body" [(ngModel)]="description">
+        </div>
+        <div class="col-md-2">
+          <input type="text" class="form-control" id="body" placeholder="Body" [(ngModel)]="id">
+        </div>
+        <div class="col-md-2" (click)="onSubmit()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2" viewBox="0 0 16 16">
+            <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+          </svg>
+        </div>
+      </div>
+       </div>
     <ul class="list-group list-group-flush" *ngFor="let element of todo.elements">
       <li class="list-group-item">{{element.Name}}</li>
       <li class="list-group-item">{{element.Description}}</li>
       <li class="list-group-item">{{element.ID}}</li>
     </ul>
   </div>
+
+  
   
 </div>

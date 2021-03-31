@@ -72,16 +72,18 @@ export class TodoService {
       .pop();
   }
 
-  updateTodoById(todo): Todo {
-    if (todo.id === 0) {
+  updateTodoById(todo,action='edit') {  
+    console.log(todo);
+    
+    if (action == 'add') {
       var todoArray = JSON.parse(localStorage.getItem('localData'));
-      var todoid = todoArray.length;
-      todo.id = ++todoid;
-      todoArray.push(todo);
+      // var todoid   = todoArray.length;
+    // this.todos[0].elements.push(detail)
+      todoArray[0].elements.push(todo);
       localStorage.setItem('localData', JSON.stringify(todoArray));
     } else {
       var todoSaveArray = JSON.parse(localStorage.getItem('localData'));
-      for (var i in todoSaveArray) {
+      for (var i in todoSaveArray[0].elements) {
         if (todoSaveArray[i].id === todo.id) {
           todoSaveArray[i] = todo;
           localStorage.setItem('localData', JSON.stringify(todoSaveArray));

@@ -16,7 +16,7 @@ import { TodoService } from './services/todo.service';
     BrowserModule,
     AppRoutingModule,
     TodoHeaderModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [TodoService],
   bootstrap: [AppComponent]
