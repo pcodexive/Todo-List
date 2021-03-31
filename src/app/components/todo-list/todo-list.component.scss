@@ -4,4 +4,69 @@
 .card{
   max-width: 914px;
   margin: 20px auto;
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 15px #E7ECF1B2;
+  border-radius: 6px;
+  opacity: 1;
+}
+.header {
+  padding: 30px;
+  border: 1px solid #F1F4F7;
+  h2 {
+    color: #253E57;
+    opacity: 1;
+    font-size: 18px;
+  }
+}
+
+.card-title{
+  font-size: 14px;
+  color: #253E57;
+  margin-left: 20px;
+  margin-bottom: 0;
+  font-weight: 600;
+}
+
+.card-text {
+  font-size: 14px;
+  color: #66707F;
+}
+
+.elipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.main-div{
+  padding: 21px;
+
+  .elip-btn {
+    background: none;
+    border: none;
+    font-size: 18px;
+  }
+}
+.font-18 {
+  font-size: 18px;
+}
+
+::ng-deep .dropleft .dropdown-toggle::before{
+  content: none;
+}
+
+.element-div{
+  background: #F8F9FB 0% 0% no-repeat padding-box;
+  margin-bottom: 1px;
+
+  .title-div {
+    border-left: 16px solid #F0F3F6;
+    padding: 21px;
+  }
+  .dis-div {
+    padding: 21px;
+  }
+  .id-div {
+    padding: 21px;
+  }
 }

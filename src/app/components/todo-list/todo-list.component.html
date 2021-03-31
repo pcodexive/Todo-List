@@ -38,35 +38,59 @@
 </div> -->
 <div class="card">
   <div *ngFor="let todo of todos">
-    <div><h2>Edit Set</h2></div>
-     <div class="card-body" (click)="onclick()">
-      <div>
-        <h5 class="card-title">{{todo.setName}}</h5>
+    <div class="header"><h2>Edit Set</h2></div>
+    <div class="card-body">
+      <div class="row main-div">
+      <div class="col-md-4 d-inline">
+        <img src="../../../assets/images/setLogo.svg"/>
+        <h5 class="card-title d-inline">{{todo.setName}}</h5>
+      </div>
+      <div class="col-md-6">
         <p class="card-text">{{todo.setDescription}}</p>
-        <p class="card-text">{{todo.setID}}</p>
       </div>
-      <div class="row" *ngIf="addmode">
-        <div class="col-md-3">
-          <input type="text" class="form-control" id="body" placeholder="Body" [(ngModel)]="name" >
-        </div>
-        <div class="col-md-5">
-          <input type="text" class="form-control" id="body" placeholder="Body" [(ngModel)]="description">
-        </div>
-        <div class="col-md-2">
-          <input type="text" class="form-control" id="body" placeholder="Body" [(ngModel)]="id">
-        </div>
-        <div class="col-md-2" (click)="onSubmit()">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2" viewBox="0 0 16 16">
-            <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
-          </svg>
+      <div class="col-md-1 dropstart">
+        <p class="card-text">{{todo.setID}} 
+        </p>
+      </div>
+      <div class="col-md-1 dropdown">
+        <div class="btn-group dropleft">
+          <button type="button" class="elip-btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fa fa-ellipsis-v"></i>
+          </button>
+          <div class="dropdown-menu" (click)="onclick()">
+            <li><button class="dropdown-item"><i class="fa fa-add float-right font-18"></i>Add Element</button></li>
+          </div>
         </div>
       </div>
-       </div>
-    <ul class="list-group list-group-flush" *ngFor="let element of todo.elements">
-      <li class="list-group-item">{{element.Name}}</li>
-      <li class="list-group-item">{{element.Description}}</li>
-      <li class="list-group-item">{{element.ID}}</li>
-    </ul>
+    </div>
+    <div class="row" *ngIf="addmode">
+      <div class="col-md-3">
+        <input type="text" class="form-control" id="body" placeholder="Body" [(ngModel)]="name" >
+      </div>
+      <div class="col-md-5">
+        <input type="text" class="form-control" id="body" placeholder="Body" [(ngModel)]="description">
+      </div>
+      <div class="col-md-2">
+        <input type="text" class="form-control" id="body" placeholder="Body" [(ngModel)]="id">
+      </div>
+      <div class="col-md-2" (click)="onSubmit()">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2" viewBox="0 0 16 16">
+          <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+        </svg>
+      </div>
+    </div>
+    <div class="row element-div" *ngFor="let element of todo.elements">
+      <div class="col-md-4 d-inline title-div">
+        <div class="card-title elipsis">{{element.Name}}</div>
+      </div>
+      <div class="col-md-6 dis-div">
+        <div class="card-text elipsis">{{element.Description}}</div>
+      </div>
+      <div class="col-md-2 id-div">
+        <div class="card-text elipsis">{{element.ID}} <i class="fa fa-trash-o float-right font-18"></i></div>
+      </div>
+    </div>
+    </div>
   </div>
 
   

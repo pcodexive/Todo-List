@@ -63,6 +63,7 @@ export class TodoListComponent implements OnInit, AfterViewInit {
     
     this.todoService.updateTodoById(detail,'add');
     this.todos = this.todoService.getAllTodos();
+    this.addmode=false ;
 
 
 
