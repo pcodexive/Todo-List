@@ -16,6 +16,9 @@ export class TodoListComponent implements OnInit, AfterViewInit {
   name:any;
   description:any;
   id:any;
+  eletElement = ""
+  editValue = "";
+  selectedRow: any;
   ngOnInit() {
     this.loadAllTodoList();
     this.todoService.getEvent().subscribe(res => {
@@ -64,5 +67,15 @@ export class TodoListComponent implements OnInit, AfterViewInit {
   this.todos = this.todoService.getAllTodos();
 
  }
+    editRow(el, i, field){
+      this.selectedRow = i;
+      this.eletElement = i+field;
+      this.editValue = el[field];
+    }
+
+    editValueChange(el, i, field,e) {
+      console.log(this.editValue)
+      
+    }
   }
 

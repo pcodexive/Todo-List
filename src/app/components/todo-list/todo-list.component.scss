@@ -32,6 +32,20 @@
   color: #66707F;
 }
 
+.title-div:hover{
+  border: 1px solid #eee;
+  border-radius: 5px;
+}
+
+.dis-div:hover{
+  border: 1px solid #eee;
+  border-radius: 5px;
+}
+.id-div:hover{
+  border: 1px solid #eee;
+  border-radius: 5px;
+}
+
 .elipsis {
   white-space: nowrap;
   overflow: hidden;
@@ -63,10 +77,16 @@
     border-left: 16px solid #F0F3F6;
     padding: 21px;
   }
+  .heighlight {
+    border-left: 16px solid #253E57;
+  }
   .dis-div {
     padding: 21px;
   }
   .id-div {
+    padding: 21px;
+  }
+  .icon-div {
     padding: 21px;
   }
 }

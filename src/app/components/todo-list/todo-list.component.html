@@ -63,33 +63,36 @@
         </div>
       </div>
     </div>
-    <div class="row" *ngIf="addmode">
-      <div class="col-md-4">
-        <input type="text" class="form-control" id="body" placeholder="Body" [(ngModel)]="name" >
+    <div class="row element-div" *ngIf="addmode">
+      <div class="col-md-4 title-div">
+        <input type="text" class="form-control" id="body" placeholder="Outcome name" [(ngModel)]="name" >
       </div>
-      <div class="col-md-5">
-        <input type="text" class="form-control" id="body" placeholder="Body" [(ngModel)]="description">
+      <div class="col-md-5 dis-div">
+        <input type="text" class="form-control" id="body" placeholder="Description" [(ngModel)]="description">
       </div>
-      <div class="col-md-2">
-        <input type="text" class="form-control" id="body" placeholder="Body" [(ngModel)]="id">
+      <div class="col-md-2 dis-div">
+        <input type="text" class="form-control" id="body" placeholder="ID" [(ngModel)]="id">
       </div>
-      <div class="col-md-1" (click)="onSubmit()">
+      <div class="col-md-1 dis-div" (click)="onSubmit()">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2" viewBox="0 0 16 16">
           <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
         </svg>
       </div>
     </div>
-    <div class="row element-div" *ngFor="let element of todo.elements">
-      <div class="col-md-4 d-inline title-div">
-        <div class="card-title elipsis">{{element.Name}}</div>
+    <div class="row element-div" *ngFor="let element of todo.elements; let i= index">
+      <div class="col-md-4 d-inline title-div" [ngClass]="{heighlight: selectedRow == i}" (click)="editRow(element, i, 'Name')">
+        <div class="card-title elipsis" *ngIf="eletElement != i+'Name'">{{element.Name}}</div>
+        <input type="text" class="form-control" id="body" *ngIf="eletElement == i+'Name'" placeholder="Outcome name" [(ngModel)]="editValue" (input)="editValueChange(element, i, 'Name', $event)">
       </div>
-      <div class="col-md-5 dis-div">
-        <div class="card-text elipsis">{{element.Description}}</div>
+      <div class="col-md-5 dis-div" (click)="editRow(element, i, 'Description')">
+        <div class="card-text elipsis" *ngIf="eletElement != i+'Description'">{{element.Description}}</div>
+        <textarea type="text" rows="5" class="form-control" id="body" *ngIf="eletElement == i+'Description'" placeholder="Description" [(ngModel)]="editValue" ></textarea>
       </div>
-      <div class="col-md-2 id-div">
-        <div class="card-text elipsis">{{element.ID}}</div>
+      <div class="col-md-2 id-div" (click)="editRow(element, i, 'ID')">
+        <div class="card-text elipsis" *ngIf="eletElement != i+'ID'">{{element.ID}}</div>
+        <input type="text" class="form-control" id="body" *ngIf="eletElement == i+'ID'" placeholder="ID" [(ngModel)]="editValue" >
       </div>
-      <div class="col-md-1 id-div" (click)="onDelete(element.ID)">
+      <div class="col-md-1 icon-div" (click)="onDelete(element.ID)">
         <div class="card-text elipsis"> <i class="fa fa-trash-o float-right font-18"></i></div>
       </div>
     </div>
