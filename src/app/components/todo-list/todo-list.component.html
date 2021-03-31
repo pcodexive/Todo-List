@@ -45,14 +45,14 @@
         <img src="assets/images/setLogo.svg"/>
         <h5 class="card-title d-inline">{{todo.setName}}</h5>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-5">
         <p class="card-text">{{todo.setDescription}}</p>
       </div>
-      <div class="col-md-1 dropstart">
+      <div class="col-md-2 dropstart">
         <p class="card-text">{{todo.setID}} 
         </p>
       </div>
-      <div class="col-md-1 dropdown">
+      <div class="col-md-1 dropdown text-right">
         <div class="btn-group dropleft">
           <button type="button" class="elip-btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fa fa-ellipsis-v"></i>
@@ -64,7 +64,7 @@
       </div>
     </div>
     <div class="row" *ngIf="addmode">
-      <div class="col-md-3">
+      <div class="col-md-4">
         <input type="text" class="form-control" id="body" placeholder="Body" [(ngModel)]="name" >
       </div>
       <div class="col-md-5">
@@ -73,7 +73,7 @@
       <div class="col-md-2">
         <input type="text" class="form-control" id="body" placeholder="Body" [(ngModel)]="id">
       </div>
-      <div class="col-md-2" (click)="onSubmit()">
+      <div class="col-md-1" (click)="onSubmit()">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2" viewBox="0 0 16 16">
           <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
         </svg>
@@ -83,11 +83,14 @@
       <div class="col-md-4 d-inline title-div">
         <div class="card-title elipsis">{{element.Name}}</div>
       </div>
-      <div class="col-md-6 dis-div">
+      <div class="col-md-5 dis-div">
         <div class="card-text elipsis">{{element.Description}}</div>
       </div>
       <div class="col-md-2 id-div">
-        <div class="card-text elipsis">{{element.ID}} <i class="fa fa-trash-o float-right font-18"></i></div>
+        <div class="card-text elipsis">{{element.ID}}</div>
+      </div>
+      <div class="col-md-1 id-div">
+        <div class="card-text elipsis"> <i class="fa fa-trash-o float-right font-18"></i></div>
       </div>
     </div>
     </div>
