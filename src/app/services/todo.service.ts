@@ -23,51 +23,41 @@ export class TodoService {
       console.log('Second');
     } else {
       var todoArrayData = [
+      {
+        setName: 'RN Program Outcomes', 
+        setDescription: 'A registered nurse, or RN, typically monitors patients, administers medications, keeps records, consults with healthcare providers, educates patients and more. They typically do not need to meet the masters degree requirement of a nurse practitioner.',
+        setID: 'RN',
 
-        {
-          "id": 1,
-          "title": "Demo",
-          "body": "Demo 123",
-          "status": "todo",
-          "created": "2020-12-30T15:28:46.493Z",
-          "edited": "2020-12-30T15:30:46.493Z",
-          "deleted": false,
-          "owner": 1
+        elements : [{ 
+          Name: 'Baccalaureate Nurse & Patient-centered Care',
+        ID: 'RN-BSN-PO1',
+        Description: 'Practice using caring, compassionate, culturally competent, and evidence-based practices in the roles of the baccalaureate nurse using the nursing process to provide patient/client-centered care in a variety of healthcare settings.',
         },
         {
-          "id": 2,
-          "title": "Demo",
-          "body": "Demo 123",
-          "status": "todo",
-          "created": "2020-12-30T15:31:46.493Z",
-          "edited": "2020-12-30T15:32:46.493Z",
-          "deleted": false,
-          "owner": 1
+        Name: 'Techniques to Effective Communication',
+        ID: 'RN-BSN-PO2',
+        Description: ' Use a broad base of techniques to communicate effectively with clients, families, healthcare teams, and communities.',
         },
         {
-          "id": 3,
-          "title": "Demo",
-          "body": "Demo 123",
-          "status": "todo",
-          "created": "2020-12-30T15:33:46.493Z",
-          "edited": "2020-12-30T15:34:46.493Z",
-          "deleted": false,
-          "owner": 2
+        Name: 'Quality Healthcare in an Evolving System',
+        ID: 'RN-BSN-PO3',
+        Description: 'Use critical thinking and decision making, local, state, national and global policies, legislative concepts, and healthcare economics to effect quality healthcare in the evolving healthcare system.',
+        },
+        {
+        Name: 'Leadership, Quality, Safety',
+        ID: 'RN-BSN-PO4',
+        Description: 'Integrate knowledge and skills in nursing leadership and management, quality improvement, and patient safety, as required, to provide healthcare.',
+        },
+        {
+        Name: 'Promote Health & Prevent Disease',
+        ID: 'RN-BSN-PO5',
+        Description: 'Integrate knowledge and skills to promote health and prevent disease across the lifespan and the continuum of healthcare environments.',
         }
+      ]
+    }];
 
-      ];
-      if (localStorage.getItem('todoOwnerID')) {
-        ownerId = Number(localStorage.getItem('todoOwnerID'))
-      } else {
-        localStorage.setItem('todoOwnerID', '1')
-      }
-      let todoData = [];
-      todoArrayData.forEach((data) => {
-        if (data.owner === ownerId) {
-          todoData.push(data)
-        }
-      })
-      localStorage.setItem('localData', JSON.stringify(todoData));
+
+      localStorage.setItem('localData', JSON.stringify(todoArrayData));
       this.todos = JSON.parse(localStorage.getItem('localData'));
       // console.log('First');
     }

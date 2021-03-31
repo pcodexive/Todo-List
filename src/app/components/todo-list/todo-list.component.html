@@ -1,4 +1,4 @@
-<div class="col-sm-12 pt-5 text-right">
+<!-- <div class="col-sm-12 pt-5 text-right">
   <div class="col-md-12">
     <button type="button" class="btn btn-dark" (click)="onClickAddTodo()">New Todo</button>
   </div>
@@ -35,4 +35,20 @@
       </tbody>
     </table>
   </div>
+</div> -->
+<div class="card">
+  <div *ngFor="let todo of todos">
+    <div><h2>Edit Set</h2></div>
+    <div class="card-body">
+      <h5 class="card-title">{{todo.setName}}</h5>
+      <p class="card-text">{{todo.setDescription}}</p>
+      <p class="card-text">{{todo.setID}}</p>
+    </div>
+    <ul class="list-group list-group-flush" *ngFor="let element of todo.elements">
+      <li class="list-group-item">{{element.Name}}</li>
+      <li class="list-group-item">{{element.Description}}</li>
+      <li class="list-group-item">{{element.ID}}</li>
+    </ul>
+  </div>
+  
 </div>
