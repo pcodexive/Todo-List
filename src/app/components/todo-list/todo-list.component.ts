@@ -13,9 +13,9 @@ export class TodoListComponent implements OnInit, AfterViewInit {
   public todos: any = [];
   constructor(private router: Router, private todoService: TodoService) { }
   addmode=false;
-  name:any;
-  description:any;
-  id:any;
+  name="";
+  description="";
+  id="";
   eletElement = ""
   editValue = "";
   selectedRow: any;
@@ -48,8 +48,10 @@ export class TodoListComponent implements OnInit, AfterViewInit {
     this.loadAllTodoList();
   }
   onclick(){
-    this.addmode=true;
-    // console.log("hello");    
+    this.name="";
+    this.description="";
+    this.id="";
+    this.addmode=true;  
   }
   onSubmit(){
     let detail:any={
@@ -68,13 +70,18 @@ export class TodoListComponent implements OnInit, AfterViewInit {
 
  }
     editRow(el, i, field){
+      console.log(el,i,field);
+      
       this.selectedRow = i;
       this.eletElement = i+field;
       this.editValue = el[field];
     }
 
     editValueChange(el, i, field,e) {
+      console.log(e.target);
+
       console.log(this.editValue)
+      this.todos[0].elements[i][field] = this.editValue
       
     }
   }

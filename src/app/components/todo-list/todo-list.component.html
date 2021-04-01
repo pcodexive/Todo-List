@@ -65,13 +65,13 @@
     </div>
     <div class="row element-div" *ngIf="addmode">
       <div class="col-md-4 title-div">
-        <input type="text" class="form-control" id="body" placeholder="Outcome name" [(ngModel)]="name" >
+        <input type="text" name="new_name" autocomplete="false"  class="form-control" id="body" placeholder="Outcome name" [(ngModel)]="name" >
       </div>
       <div class="col-md-5 dis-div">
-        <input type="text" class="form-control" id="body" placeholder="Description" [(ngModel)]="description">
+        <input type="text" class="form-control" name="new_description" id="body" placeholder="Description" [(ngModel)]="description">
       </div>
       <div class="col-md-2 dis-div">
-        <input type="text" class="form-control" id="body" placeholder="ID" [(ngModel)]="id">
+        <input type="text" class="form-control" name="new_id" id="body" placeholder="ID" [(ngModel)]="id">
       </div>
       <div class="col-md-1 dis-div" (click)="onSubmit()">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2" viewBox="0 0 16 16">
@@ -86,11 +86,11 @@
       </div>
       <div class="col-md-5 dis-div" (click)="editRow(element, i, 'Description')">
         <div class="card-text elipsis" *ngIf="eletElement != i+'Description'">{{element.Description}}</div>
-        <textarea type="text" rows="5" class="form-control" id="body" *ngIf="eletElement == i+'Description'" placeholder="Description" [(ngModel)]="editValue" ></textarea>
+        <textarea type="text" rows="5" class="form-control" id="body" *ngIf="eletElement == i+'Description'" placeholder="Description" [(ngModel)]="editValue" (input)="editValueChange(element, i, 'Description', $event)"></textarea>
       </div>
       <div class="col-md-2 id-div" (click)="editRow(element, i, 'ID')">
         <div class="card-text elipsis" *ngIf="eletElement != i+'ID'">{{element.ID}}</div>
-        <input type="text" class="form-control" id="body" *ngIf="eletElement == i+'ID'" placeholder="ID" [(ngModel)]="editValue" >
+        <input type="text" class="form-control" id="body" *ngIf="eletElement == i+'ID'" placeholder="ID" [(ngModel)]="editValue" (input)="editValueChange(element, i, 'ID', $event)">
       </div>
       <div class="col-md-1 icon-div" (click)="onDelete(element.ID)">
         <div class="card-text elipsis"> <i class="fa fa-trash-o float-right font-18"></i></div>
